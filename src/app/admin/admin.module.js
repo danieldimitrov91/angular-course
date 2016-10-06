@@ -10,6 +10,7 @@ import config from './admin.config';
  */
 import homeModule from './home/home.module';
 import logoutSuccessModule from './logout-success/logout-success.module';
+import headerDirective from './header/header.directive';
 
 
 /**
@@ -18,7 +19,8 @@ import logoutSuccessModule from './logout-success/logout-success.module';
  */
 let adminDependencies = [
     homeModule,
-	logoutSuccessModule
+	logoutSuccessModule,
+    headerDirective
 ];
 
 

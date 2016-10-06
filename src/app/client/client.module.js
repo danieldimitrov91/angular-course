@@ -12,6 +12,8 @@ import homeModule from './home/home.module';
 import loginModule from './login/login.module';
 import registerModule from './register/register.module';
 import headerDirective from './header/header.directive';
+import headerController from './header/header.controller';
+
 
 /**
  * Define application dependencies
@@ -21,7 +23,8 @@ let clientDependencies = [
     homeModule,
 	loginModule,
 	registerModule,
-	headerDirective
+	headerDirective,
+	headerController
 ];
 
 /**

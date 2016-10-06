@@ -5,8 +5,12 @@ module.exports = function(grunt) {
         watch: {
 
             html: {
-                files: ['src/*.html'],
+                files: ['src/**/*.html'],
                 tasks: ['copy:html']
+            },
+            css: {
+                files: ['src/css/style.css'],
+                tasks:['copy:css']
             }
         },
 
@@ -33,6 +37,12 @@ module.exports = function(grunt) {
                         dest: 'dev/css'
                     },
                     {
+                        expand: true,
+                        cwd: './src/css',
+                        src: ['**'],
+                        dest: 'dev/css'
+                    },
+                    {
                         expand: true, 
                         cwd: 'src/img', 
                         src: ['**'], 
@@ -48,6 +58,16 @@ module.exports = function(grunt) {
                         cwd: 'src', 
                         src: ['index.html'], 
                         dest: 'dev/'
+                    }
+                ]
+            },
+            css: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'src/css/',
+                        src: ['style.css'],
+                        dest: 'dev/css'
                     }
                 ]
             }
@@ -79,6 +99,9 @@ module.exports = function(grunt) {
                     alias: [
                         './bower_components/angular/angular.min.js:angular',
                         './bower_components/angular-ui-router/release/angular-ui-router.min.js:ui-router',
+                        './bower_components/jquery/dist/jquery.min.js:jquery',
+                        // './bower_components/materialize/js/date_picker/picker.js:date-picker',
+                        // './bower_components/materialize/dist/js/materialize.js:materialize',
                         './src/vendor/underscore.js:underscore'
                     ]
                 }
@@ -100,7 +123,10 @@ module.exports = function(grunt) {
                     external: [
                         'angular',
                         'ui-router',
-                        'underscore'
+                        'underscore',
+                        'jquery'
+                        // 'materialize',
+                        // 'date-picker'
                     ],
 
                     alias: {}
@@ -118,8 +144,8 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean:dev', 
         'browserify:vendor',
-        'browserify:watchClient', 
-        'copy:dev', 
+        'browserify:watchClient',
+        'copy:dev',
         'watch'
     ]);
 

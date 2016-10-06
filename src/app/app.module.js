@@ -14,6 +14,8 @@ import config from './app.config';
  */
 import clientModule from './client/client.module';
 import adminModule from './admin/admin.module';
+import appController from './app.controller';
+import footerDirective from './footer/footer.directive';
 
 /**
  * Define application dependencies
@@ -22,7 +24,9 @@ import adminModule from './admin/admin.module';
 let appDependencies = [
     'ui.router',
     clientModule,
-    adminModule
+    adminModule,
+    appController,
+    footerDirective
 ];
 
 /**

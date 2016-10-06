@@ -1,7 +1,19 @@
 <div header-client></div>
 
-<section class="main-content-register">
+<section class="main-content-register" ng-controller="checkCtrl">
     <div class="container">
-        <h1>Home Page</h1>
+        <h1 class="page-title">Home Page</h1>
+
+        <h2>{{ greeting; }}</h2>
+
+        <div ng-controller="initFunctions">
+            <p ng-repeat="(key, value) in news">
+                {{ key+'-'+value; }}
+            </p>
+        </div>
+
+        <p class="flow-text">I am Flow Text</p>
     </div>
 </section>
+
+<div main-footer></div>

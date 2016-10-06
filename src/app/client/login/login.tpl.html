@@ -3,7 +3,31 @@
 <section class="main-content-register">
     <div class="container">
         <h1>Login Page</h1>
-        <h2>{{ greeting }}</h2>
-        <a ui-sref="app.client.login({x1: id1, x2: id2})">View Login</a>
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 right-align">
+                        <button class="btn waves-effect waves-light blue darken-2" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </section>
+
+<div main-footer></div>

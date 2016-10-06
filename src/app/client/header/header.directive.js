@@ -11,7 +11,17 @@ function headerClient () {
     var directive = {
         restrict: 'A',
         template: template,
-        replace: true
+        replace: true,
+        link: function (skope, elem, attrs) {
+            elem.bind('click', function () {
+                document.querySelector('h1').innerHTML += 'Welcome mother fucker';
+            })
+        },
+        compile: function () {
+            return  function () {
+                $(".button-collapse").sideNav();
+            }
+        }
     };
 
     return directive;
