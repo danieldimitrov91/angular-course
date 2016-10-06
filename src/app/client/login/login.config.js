@@ -20,6 +20,9 @@ function config ($urlRouterProvider, $stateProvider) {
         	client: {
         		template: template
         	}
+        },
+        params: {
+            requireLogin: false
         }
     });
 }

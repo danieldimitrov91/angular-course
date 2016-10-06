@@ -15,6 +15,6 @@ function config ($stateProvider) {
 
     $stateProvider.state("app.client", {
         abstract: true,
-       	template: '<div ui-view="client" class="page-wrapper"></div>'
+       	template: '<div header-client></div><div ui-view="client" class="page-wrapper"></div>'
     });
 }

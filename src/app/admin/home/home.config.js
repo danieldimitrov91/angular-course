@@ -20,6 +20,9 @@ function config ($stateProvider) {
         	admin: {
         		template: template
         	}
+        },
+        params: {
+            requireLogin: true
         }
     });
 }

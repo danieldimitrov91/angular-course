@@ -20,6 +20,9 @@ function config ($stateProvider) {
         	client: {
         		template: template
         	}
+        },
+        params: {
+            requireLogin: false
         }
     });
 }
