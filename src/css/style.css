@@ -29,3 +29,8 @@
 nav {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 }
+.header-text {
+    color: #09374c;
+    font-size: 17px;
+    padding: 0px 10px;
+}

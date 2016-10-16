@@ -18,7 +18,9 @@ function config ($stateProvider) {
         url: "/",
         views: {
         	client: {
-        		template: template
+        		template: template,
+                controller: 'HomeConfigController',
+                controllerAs: 'vm'
         	}
         },
         params: {

@@ -1,9 +1,9 @@
-<section class="main-content-register" ng-controller="checkCtrl">
+<section class="main-content-register">
     <div class="container">
         <h1 class="page-title">Home Page</h1>
 
-        <h2>{{ greeting; }}</h2>
-
+        <h3>{{ vm.title }}</h3>
+        <h3>{{ title2 }}</h3>
         <div ng-controller="initFunctions">
             <p ng-repeat="(key, value) in news">
                 {{ key+'-'+value; }}

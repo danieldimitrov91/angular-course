@@ -11,8 +11,9 @@ import config from './client.config';
 import homeModule from './home/home.module';
 import loginModule from './login/login.module';
 import registerModule from './register/register.module';
-import headerDirective from './header/header.directive';
-import headerController from './header/header.controller';
+// import headerDirective from './header/header.directive';
+// import headerController from './header/header.controller';
+import headerModule from './header/header.module'
 
 
 /**
@@ -20,11 +21,13 @@ import headerController from './header/header.controller';
  * @type {Array}
  */
 let clientDependencies = [
+	headerModule,
+
     homeModule,
 	loginModule,
 	registerModule,
-	headerDirective,
-	headerController
+	// headerDirective,
+	// headerController
 ];
 
 /**

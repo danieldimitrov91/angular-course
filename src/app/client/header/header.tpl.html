@@ -1,10 +1,12 @@
-<header class="blue darken-2" ng-controller="runNavigation">
+<header class="blue darken-2">
     <div class="container">
         <nav class="blue darken-2">
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo">Logo</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
+                    <li><span class="header-text">{{ title }}</span></li>
+                    <li><span class="header-text">{{ vm.headerTitle }}</span></li>
                     <li><a ui-sref="app.client.home">Home</a></li>
                     <li><a ui-sref="app.client.login">Login</a></li>
                     <li><a ui-sref="app.client.register">Register</a></li>

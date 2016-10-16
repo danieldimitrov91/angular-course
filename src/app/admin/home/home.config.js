@@ -22,7 +22,7 @@ function config ($stateProvider) {
         	}
         },
         params: {
-            requireLogin: true
+            requireLogin: false
         }
     });
 }
