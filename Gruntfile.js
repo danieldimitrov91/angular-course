@@ -99,10 +99,10 @@ module.exports = function(grunt) {
                     alias: [
                         './bower_components/angular/angular.min.js:angular',
                         './bower_components/angular-ui-router/release/angular-ui-router.min.js:ui-router',
-                        './bower_components/jquery/dist/jquery.min.js:jquery',
-                        // './bower_components/materialize/js/date_picker/picker.js:date-picker',
-                        // './bower_components/materialize/dist/js/materialize.js:materialize',
-                        './src/vendor/underscore.js:underscore'
+                        './bower_components/angular-resource/angular-resource.js:ng-resource',
+                        './bower_components/jquery/dist/jquery.js:jquery',
+                        './bower_components/angular-materialize/src/angular-materialize.js:angular-materialize',
+                        './src/vendor/underscore.js:underscore',
                     ]
                 }
             },
@@ -123,10 +123,10 @@ module.exports = function(grunt) {
                     external: [
                         'angular',
                         'ui-router',
-                        'underscore',
-                        'jquery'
-                        // 'materialize',
-                        // 'date-picker'
+                        'ng-resource',
+                        'jquery',
+                        'angular-materialize',
+                        'underscore'
                     ],
 
                     alias: {}

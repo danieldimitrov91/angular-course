@@ -18,6 +18,8 @@ function config ($urlRouterProvider, $stateProvider) {
         url: "/login?x1&x2",
         views: {
         	client: {
+                controller: 'LoginController',
+                controllerAs: 'vm',
         		template: template
         	}
         },

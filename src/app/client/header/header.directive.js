@@ -18,19 +18,19 @@ function headerClient () {
         replace: true,
         controller: HeaderController,
         controllerAs: 'vm',
+        // scope: {
+        //     color: '@colorAttr'
+        // },
         link: function (scope, elem, attrs) {
-            // document.querySelector('.header-text').addEventListener('click', checkFunction);
+            document.querySelector('.header-text').addEventListener('click', checkFunction);
             console.log(elem);
-            elem.on('click', checkFunction);
+            console.log(attrs);
+            // elem.on('click', checkFunction);
             elem.on('$destroy', function () {
                 console.log('header client destroy method on');
-                // document.querySelector('.header-text').removeEventListener('click', checkFunction);
+                document.querySelector('.header-text').removeEventListener('click', checkFunction);
             });
-
-            function checkFunction() {
-                document.querySelector('h1').innerHTML += 'Welcome mother fucker';
-            }
-        },
+        }
         // compile: function () {
         //     return  function () {
         //         $(".button-collapse").sideNav();
@@ -38,7 +38,11 @@ function headerClient () {
         // }
     };
 
+    function checkFunction() {
+        document.querySelector('h1').innerHTML += 'Welcome mother fucker';
+    }
+
     return directive;
-};
+}
 
 export default headerClient;
