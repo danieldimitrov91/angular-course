@@ -14,7 +14,7 @@ function HeaderController($scope) {
     vm.headerTitle = 'header Title';
     console.log('header controller inside');
     vm.color = 'background-color:red;';
-    console.log(vm.color);
+
     // document.addEventListener('$destroy', function () {
     //     console.log('header client destroy method on');
     // });

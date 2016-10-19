@@ -11,14 +11,14 @@ import config from './client.config';
 import homeModule from './home/home.module';
 import loginModule from './login/login.module';
 import registerModule from './register/register.module';
-import headerModule from './header/header.module'
-
+import headerModule from './header/header.module';
 
 /**
  * Define application dependencies
  * @type {Array}
  */
 let clientDependencies = [
+
 	headerModule,
 
     homeModule,

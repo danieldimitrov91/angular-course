@@ -2,7 +2,9 @@
  * Libraries
  */
 import 'angular';
+import 'angular-materialize';
 import 'ui-router';
+import 'ng-resource';
 
 /***
  * App config
@@ -16,6 +18,7 @@ import clientModule from './client/client.module';
 import adminModule from './admin/admin.module';
 import appController from './app.controller';
 import footerDirective from './footer/footer.directive';
+import servicesModule from './services/service.module';
 
 /**
  * Define application dependencies
@@ -23,6 +26,11 @@ import footerDirective from './footer/footer.directive';
  */
 let appDependencies = [
     'ui.router',
+    'ngResource',
+    'ui.materialize',
+
+    servicesModule,
+
     clientModule,
     adminModule,
     appController,

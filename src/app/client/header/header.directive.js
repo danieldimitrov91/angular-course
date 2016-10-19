@@ -23,19 +23,12 @@ function headerClient () {
         // },
         link: function (scope, elem, attrs) {
             document.querySelector('.header-text').addEventListener('click', checkFunction);
-            console.log(elem);
-            console.log(attrs);
-            // elem.on('click', checkFunction);
+
             elem.on('$destroy', function () {
                 console.log('header client destroy method on');
                 document.querySelector('.header-text').removeEventListener('click', checkFunction);
             });
         }
-        // compile: function () {
-        //     return  function () {
-        //         $(".button-collapse").sideNav();
-        //     }
-        // }
     };
 
     function checkFunction() {
