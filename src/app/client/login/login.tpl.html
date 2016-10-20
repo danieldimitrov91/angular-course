@@ -3,16 +3,16 @@
         <h1>Login Page</h1>
 
         <div class="row">
-            <form class="col s12">
+            <form class="col s12" ng-submit="vm.initiateLogin()" name="vm.loginForm">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
+                        <input id="email" ng-blur="vm.checkUser()" required="true" type="text" ng-model="vm.userData.email" name="email" class="validate">
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
+                        <input id="password" type="password" required="true" ng-blur="vm.checkPassword()" ng-model="vm.userData.password" name="password" class="validate">
                         <label for="password">Password</label>
                     </div>
                 </div>

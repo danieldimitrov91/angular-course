@@ -3,8 +3,8 @@ import config from './login.config';
 import LoginController from './login.controller';
 
 export default angular.module('client.login', [])
+    // .controller('LoginController', LoginController)
     .config(config)
-    .controller('LoginController', LoginController)
     .name;
 // var login = angular.module('client.login', []).config(config).name;
 //
