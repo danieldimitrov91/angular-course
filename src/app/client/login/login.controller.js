@@ -37,7 +37,7 @@ function LoginController($scope, $rootScope, $state, UserService) {
                                 // password 1
                                 $rootScope.loggedIn = true;
                                 console.log('app.admin.home');
-                                // $state.go('app.admin.home');
+                                $state.go('app.admin.home');
 
                                 break;
 
