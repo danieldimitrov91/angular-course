@@ -1,9 +1,9 @@
 import 'angular';
 
-UserService.$inject = ['$resource'];
+UserService.$inject = ['$resource', 'API_URL'];
 
-function UserService($resource) {
-    var URL = 'http://57e0fb4e4ed1d8110064d494.mockapi.io/api/v1/:action',
+function UserService($resource, API_URL) {
+    var URL = API_URL + ':action',
         defaultParams = {
         action: '@action'
     };
@@ -13,8 +13,15 @@ function UserService($resource) {
 
 
     return $resource(URL, defaultParams, {
-        authenticateUser: {
+        getAllUsers: {
             method: 'GET',
+            params: {
+                action: 'users'
+            },
+            isArray: false
+        },
+        registerUser: {
+            method: 'POST',
             params: {
                 action: 'users'
             },

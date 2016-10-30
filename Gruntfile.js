@@ -103,6 +103,7 @@ module.exports = function(grunt) {
                         './bower_components/jquery/dist/jquery.js:jquery',
                         './bower_components/angular-materialize/src/angular-materialize.js:angular-materialize',
                         './src/vendor/underscore.js:underscore',
+                        './src/vendor/ngStorage.js:ng-storage'
                     ]
                 }
             },
@@ -126,7 +127,8 @@ module.exports = function(grunt) {
                         'ng-resource',
                         'jquery',
                         'angular-materialize',
-                        'underscore'
+                        'underscore',
+                        'ng-storage'
                     ],
 
                     alias: {}

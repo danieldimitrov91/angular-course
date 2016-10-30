@@ -5,6 +5,7 @@ import 'angular';
 import 'angular-materialize';
 import 'ui-router';
 import 'ng-resource';
+import 'ng-storage';
 
 /***
  * App config
@@ -16,10 +17,13 @@ import config from './app.config';
  */
 import clientModule from './client/client.module';
 import adminModule from './admin/admin.module';
+
 import appController from './app.controller';
 import footerDirective from './footer/footer.directive';
 import servicesModule from './services/service.module';
 import appFilters from './filters/app.filters';
+import appProviders from './providers/app.provider';
+import appConstants from './constants/app.constants';
 
 /**
  * Define application dependencies
@@ -28,9 +32,12 @@ import appFilters from './filters/app.filters';
 let appDependencies = [
     'ui.router',
     'ngResource',
+    'ngStorage',
     'ui.materialize',
 
     servicesModule,
+    appProviders,
+    appConstants,
     appFilters,
 
     clientModule,
@@ -48,23 +55,21 @@ let app = angular.module('app', appDependencies);
 app.config(config)
     .run(appRun);
 
-appRun.$inject = ['$rootScope', '$state'];
+appRun.$inject = ['$rootScope', '$state', 'ProfileService'];
 
-function appRun($rootScope, $state) {
+function appRun($rootScope, $state, ProfileService) {
 
-    $rootScope.loggedIn = false;
     $rootScope.$on('$stateChangeStart', handleStateChange);
 
 
     function handleStateChange(evnt, toState, toParams, fromState, fromParams, options) {
-        console.log(toState);
-        if($rootScope.loggedIn === toState.params.requireLogin) {
+        // console.log(toState);
 
-        } else {
+        if(ProfileService.isLoggedIn() !== toState.params.requireLogin) {
 
             evnt.preventDefault();
 
-            if($rootScope.loggedIn) {
+            if(ProfileService.isLoggedIn()) {
                 $state.go('app.admin.home');
             } else {
                 $state.go('app.client.home');
@@ -72,4 +77,12 @@ function appRun($rootScope, $state) {
         }
     }
 }
+
+
+
+
+
+
+
+
 

@@ -7,6 +7,7 @@ import 'angular';
  * Configure Home module
  **/
 import template from './register.tpl.html';
+import RegisterController from './register.controller';
 
 export default config;
 
@@ -18,7 +19,7 @@ function config ($stateProvider) {
         url: "/register",
         views: {
         	client: {
-        	    controller: 'RegisterController',
+        	    controller: RegisterController,
         	    controllerAs: 'vm',
         		template: template
         	}

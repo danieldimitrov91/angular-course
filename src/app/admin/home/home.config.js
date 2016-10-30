@@ -7,6 +7,7 @@ import 'angular';
  * Configure Home module
  **/
 import template from './home.tpl.html';
+import AdminHomeController from './admin.home.controller';
 
 export default config;
 
@@ -18,6 +19,8 @@ function config ($stateProvider) {
         url: "/home-admin",
         views: {
         	admin: {
+                controller: AdminHomeController,
+                controllerAs: 'vm',
         		template: template
         	}
         },
