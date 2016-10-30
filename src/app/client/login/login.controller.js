@@ -1,6 +1,6 @@
-LoginController.$inject = ['$scope', '$rootScope', '$state', 'UserService'];
+LoginController.$inject = ['$scope', '$rootScope', '$state', 'UserService', 'filterByFilter'];
 
-function LoginController($scope, $rootScope, $state, UserService) {
+function LoginController($scope, $rootScope, $state, UserService, filterBy) {
 
     var vm = this;
 
@@ -18,7 +18,7 @@ function LoginController($scope, $rootScope, $state, UserService) {
         checkPassword: false
     };
     vm.initiateLogin = function () {
-
+    // console.log(filterBy.filterByEmailandPassword(['dasdas'], 'dasdas'));
         if(vm.loginForm.$valid && vm.checkFields.checkEmail && vm.checkFields.checkPassword) {
             console.log('YES');
 
@@ -27,9 +27,15 @@ function LoginController($scope, $rootScope, $state, UserService) {
 
             UserService.authenticateUser({},
                 function success (response){
-
+                    console.log(response);
                     if (response.status === 200) {
 
+                        if (filterBy.filterByEmailandPassword(response.result, vm.userData.email ,vm.userData.password)) {
+                            console.log('Logged in');
+                            $rootScope.loggedIn = true;
+                            $state.go('app.admin.home');
+                        } else {
+                            console.log('Not Logged in');
                         for(var i = 0; i < response.result.length; i++) {
 
                             if (response.result[i].email === vm.userData.email && response.result[i].password === vm.userData.password) {

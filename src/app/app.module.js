@@ -19,6 +19,7 @@ import adminModule from './admin/admin.module';
 import appController from './app.controller';
 import footerDirective from './footer/footer.directive';
 import servicesModule from './services/service.module';
+import appFilters from './filters/app.filters';
 
 /**
  * Define application dependencies
@@ -30,6 +31,7 @@ let appDependencies = [
     'ui.materialize',
 
     servicesModule,
+    appFilters,
 
     clientModule,
     adminModule,
