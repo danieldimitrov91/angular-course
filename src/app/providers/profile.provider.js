@@ -21,7 +21,8 @@ function ProfileService ($localStorage) {
         return {
             isLoggedIn: isLoggedIn,
             setProfile: setProfile,
-            getProfile: getProfile
+            getProfile: getProfile,
+            logoutUser: logoutUser
         }
     };
 
@@ -40,4 +41,10 @@ function ProfileService ($localStorage) {
     function getProfile () {
         return userProfileData;
     }
+    function logoutUser () {
+        // console.log($localStorage);
+        localStorage.removeItem('ngStorage-loggedIn');
+        localStorage.removeItem('ngStorage-userId');
+    }
 }
+
