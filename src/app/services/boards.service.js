@@ -32,7 +32,22 @@ function BoardsService($resource, API_URL) {
                 action: 'boards'
             },
             isArray: false
-        }
+        },
+        deleteBoard: {
+            method: 'DELETE',
+            params: {
+                action: 'boards'
+            },
+            isArray: false
+        },
+        createBoard: {
+            method: 'POST',
+            params: {
+                action: 'boards'
+            },
+            isArray: false
+        },
+
     });
 }
 export default BoardsService;

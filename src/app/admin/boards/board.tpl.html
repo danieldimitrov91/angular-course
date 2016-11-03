@@ -1,0 +1,27 @@
+<div header-admin></div>
+<section class="main-content-register">
+    <div class="container">
+        <h1>Board Page</h1>
+    </div>
+
+    <div class="col">
+        <a class='btn' href='#demoModal' modal>Create Board</a>
+    </div>
+    <!-- Modal Structure -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <h4>Modal header</h4>
+            <p>A bunch of text</p>
+            <div input-field>
+            <input type="text" ng-model="vm.boardData.name" length="150">
+            <label>Add Board Name</label>
+        </div>
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:;" ng-click="vm.createBoard()" class=" modal-action waves-effect waves-green btn-flat">Create Board</a>
+            <a href="javascript:;" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+</section>
+<div main-footer></div>

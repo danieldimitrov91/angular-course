@@ -1,4 +1,5 @@
 import 'angular';
+import _ from 'underscore';
 
 AdminHomeController.$inject = ['BoardsService', 'ProfileService'];
 
@@ -23,11 +24,31 @@ function AdminHomeController(BoardsService, ProfileService) {
         console.log(userId);
     }
 
+    vm.deleteBoard = function (board) {
+        if (!board.deleting) {
+            board.deleting = true
+            BoardsService.deleteBoard({
+                userId: userId,
+                boardId: board.id},
+                successDeleteBoard.bind(board),
+                failDeleteBoard.bind(board)
+            );
+        }
+    };
+
     function successGetBoards(response) {
         vm.boards = response.result;
         console.log(response);
     }
     function failGetBoards(response) {
         console.log('faild to get boards');
+    }
+
+    function successDeleteBoard(response) {
+        console.log(response);
+        vm.boards = _.reject(vm.boards, this);
+    }
+    function failDeleteBoard(response) {
+
     }
 }

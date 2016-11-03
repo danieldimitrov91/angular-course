@@ -43,8 +43,11 @@ function ProfileService ($localStorage) {
     }
     function logoutUser () {
         // console.log($localStorage);
-        localStorage.removeItem('ngStorage-loggedIn');
-        localStorage.removeItem('ngStorage-userId');
+        userProfileData.loggedIn = false;
+        userProfileData.id = null;
+
+        $localStorage.set('loggedIn', userProfileData.loggedIn);
+        $localStorage.set('userId', userProfileData.id);
     }
 }
 

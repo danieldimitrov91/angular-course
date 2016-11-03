@@ -11,6 +11,7 @@ import config from './admin.config';
 import homeModule from './home/home.module';
 import logoutSuccessModule from './logout-success/logout-success.module';
 import headerDirective from './header/header.directive';
+import boardModule from './boards/board.module';
 
 
 /**
@@ -20,8 +21,13 @@ import headerDirective from './header/header.directive';
 let adminDependencies = [
     homeModule,
 	logoutSuccessModule,
-    headerDirective
+    headerDirective,
+    boardModule
 ];
+
+
+
+
 
 
 /**
