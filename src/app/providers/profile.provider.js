@@ -22,12 +22,16 @@ function ProfileService ($localStorage) {
             isLoggedIn: isLoggedIn,
             setProfile: setProfile,
             getProfile: getProfile,
-            logoutUser: logoutUser
+            logoutUser: logoutUser,
+            getUserId: getUserId
         }
     };
 
     function isLoggedIn () {
         return userProfileData.loggedIn;
+    }
+    function getUserId () {
+        return userProfileData.id;
     }
 
     function setProfile (userData) {

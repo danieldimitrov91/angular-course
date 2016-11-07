@@ -8,20 +8,15 @@ export default AdminHomeController;
 function AdminHomeController(BoardsService, ProfileService) {
 
     var vm = this;
-    vm.title = 'Board Controller';
-    vm.boardData = {
-        name: ''
-    };
-    activate();
 
+    vm.title = 'Board Controller';
+
+    activate();
     //////////////////////
 
     function activate() {
 
     }
 
-    vm.createBoard = function () {
-        console.log(vm.boardData.name);
-        // TO DO Create Board
-    }
+
 }
