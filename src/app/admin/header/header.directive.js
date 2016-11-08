@@ -29,9 +29,7 @@ function headerAdmin ($state, ProfileService) {
         console.log('logout');
         ProfileService.logoutUser();
 
-        $state.go('app.client.login');
+        $state.go('app.admin.logout-success');
     }
-
-
     return directive;
 };
