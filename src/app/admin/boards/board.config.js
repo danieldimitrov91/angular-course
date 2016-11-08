@@ -16,7 +16,7 @@ config.$inject = ['$stateProvider'];
 function config ($stateProvider) {
 
     $stateProvider.state("app.admin.board", {
-        url: "/board",
+        url: "/board/:id",
         views: {
             admin: {
                 controller: BoardController,
@@ -25,6 +25,7 @@ function config ($stateProvider) {
             }
         },
         params: {
+            board: null,
             requireLogin: true
         }
     });
