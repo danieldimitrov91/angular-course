@@ -22,12 +22,16 @@ function ProfileService ($localStorage) {
             isLoggedIn: isLoggedIn,
             setProfile: setProfile,
             getProfile: getProfile,
-            logoutUser: logoutUser
+            logoutUser: logoutUser,
+            getUserId: getUserId
         }
     };
 
     function isLoggedIn () {
         return userProfileData.loggedIn;
+    }
+    function getUserId () {
+        return userProfileData.id;
     }
 
     function setProfile (userData) {
@@ -45,10 +49,9 @@ function ProfileService ($localStorage) {
         // console.log($localStorage);
         userProfileData.loggedIn = false;
         userProfileData.id = null;
+
         $localStorage.set('loggedIn', userProfileData.loggedIn);
         $localStorage.set('userId', userProfileData.id);
-        // localStorage.removeItem('ngStorage-loggedIn');
-        // localStorage.removeItem('ngStorage-userId');
     }
 }
 

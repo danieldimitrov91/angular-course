@@ -1,55 +1,53 @@
 import 'angular';
 
-BoardsService.$inject = ['$resource', 'API_URL'];
+CardsService.$inject = ['$resource', 'API_URL'];
 
-function BoardsService($resource, API_URL) {
-    var URL = API_URL + 'users/:userId/:action/:boardId',
+function CardsService($resource, API_URL) {
+    var URL = API_URL + 'users/:userId/boards/:boardId/:action/:cardId',
         defaultParams = {
             userId: '@userId',
             action: '@action',
-            boardId: '@boardId'
+            bordId: '@bordId',
+            cardId: '@cardId'
         };
     console.log('BoardService method');
 
     return $resource(URL, defaultParams, {
-        getBoards: {
+        getCards: {
             method: 'GET',
             params: {
-                action: 'boards'
+                action: 'cards'
             },
             isArray: false
         },
-        deleteBoard: {
+        deleteCard: {
             method: 'DELETE',
             params: {
-                action: 'boards'
+                action: 'cards'
             },
             isArray: false
         },
-        getBoard: {
+        getCard: {
             method: 'GET',
             params: {
-                action: 'boards'
+                action: 'cards'
             },
             isArray: false
         },
-        deleteBoard: {
-            method: 'DELETE',
-            params: {
-                action: 'boards'
-            },
-            isArray: false
-        },
-        createBoard: {
+        createCard: {
             method: 'POST',
             params: {
-                action: 'boards'
+                action: 'cards'
             },
             isArray: false
         },
 
     });
 }
-export default BoardsService;
+export default CardsService;
+
+
+
+
 
 

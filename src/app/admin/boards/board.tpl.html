@@ -1,48 +1,45 @@
 <div header-admin></div>
-
 <section class="main-content-register">
     <div class="container">
-        <h1>Home Admin Page</h1>
+        <h1>Board Page</h1>
     </div>
 
     <div class="row">
         <div class="col">
-            <a class='btn' href='#demoModal' modal>Create Board</a>
+            <a class='btn' href='#demoModal' modal>Create Card</a>
         </div>
     </div>
     <!-- Modal Structure -->
     <div id="demoModal" class="modal">
         <div class="modal-content">
-            <h4>Create Board</h4>
+            <h4>Create Card</h4>
             <div input-field>
-                <input type="text" ng-model="vm.boardData.name" length="150">
-                <label>Add Board Name</label>
+                <input type="text" ng-model="vm.cardData.name" length="150">
+                <label>Add Card Name</label>
             </div>
         </div>
         <div class="modal-footer">
-            <a href="javascript:;" ng-click="vm.createBoard()" class=" modal-action waves-effect waves-green btn-flat">Create Board</a>
+            <a href="javascript:;" ng-click="vm.createCard()" class=" modal-action waves-effect waves-green btn-flat">Create Card</a>
             <a href="javascript:;" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
         </div>
     </div>
 
     <div class="row">
-        <div class="col s12 m6" ng-repeat="board in vm.boards">
+        <div class="col s12 m6" ng-repeat="card in vm.board.cards">
             <div class="card blue-grey darken-1">
                 <div class="card-content white-text">
-                    <span class="card-title">{{board.name}}</span>
-                    <p>{{board.cards.length}}</p>
+                    {{card}}
+                    <!--<span class="card-title">{{card.name}}</span>-->
+                    <!--<p>{{board.cards.length}}</p>-->
                 </div>
                 <div class="card-action">
                     <!--<a href="javascript:;" ui-sref="app.admin.board({id: board.id, board: board})">This is a link</a>-->
-                    <a href="javascript:;" ui-sref="app.admin.board({id: board.id, board: board})">View cards</a>
-                    <a href="javascript:;" ng-click="vm.deleteBoard(board)">Delete board</a>
+                    <!--<a href="javascript:;" ui-sref="app.admin.board({id: board.id, board: board})">View cards</a>-->
+                    <!--<a href="javascript:;" ng-click="vm.deleteCard(card)">Delete board</a>-->
                 </div>
             </div>
         </div>
     </div>
 
 </section>
-
-
-
 <div main-footer></div>
