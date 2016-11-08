@@ -7,7 +7,7 @@ function CardsService($resource, API_URL) {
         defaultParams = {
             userId: '@userId',
             action: '@action',
-            bordId: '@bordId',
+            boardId: '@boardId',
             cardId: '@cardId'
         };
     console.log('BoardService method');
@@ -44,6 +44,8 @@ function CardsService($resource, API_URL) {
 
     });
 }
+
+
 export default CardsService;
 
 

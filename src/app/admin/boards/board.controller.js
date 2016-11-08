@@ -42,7 +42,7 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
     vm.createCard = function () {
         var modal = document.querySelector('.modal.open'),
             backShadow = document.querySelector('.lean-overlay'),
-            emptyInput = document.querySelector('#angularMaterializeID0');
+            emptyInput = document.querySelector('.modal-input');
 
         document.body.removeChild(backShadow);
         emptyInput.value = '';

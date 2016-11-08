@@ -42,8 +42,8 @@ function AdminHomeController(BoardsService, ProfileService) {
     vm.createBoard = function () {
         var modal = document.querySelector('.modal.open'),
             backShadow = document.querySelector('.lean-overlay'),
-            emptyInput = document.querySelector('#angularMaterializeID0');
-
+            emptyInput = document.querySelector('.modal-input');
+        console.log(emptyInput);
         document.body.removeChild(backShadow);
         emptyInput.value = '';
         modal.classList.remove('open');
