@@ -34,3 +34,10 @@ nav {
     font-size: 17px;
     padding: 0px 10px;
 }
+.modal.open {
+    z-index: 1003;
+    display: block;
+    opacity: 1;
+    transform: scaleX(1);
+    top: 10%;
+}

@@ -35,14 +35,15 @@
                 <div class="card-action">
                     <!--<a href="javascript:;" ui-sref="app.admin.board({id: board.id, board: board})">This is a link</a>-->
                     <a href="javascript:;" ui-sref="app.admin.board({id: board.id, board: board})">View cards</a>
-                    <a href="javascript:;" ng-click="vm.deleteBoard(board)">Delete board</a>
+                    <a href="javascript:;" ng-click="vm.confirmDelete(board)">Delete board</a>
                 </div>
             </div>
+            <!--<confirm-modal data-show="vm.ui.modal.show" data-title="{{vm.ui.modal.title}}" data-action="vm.deleteBoard()"></confirm-modal>-->
         </div>
     </div>
 
 </section>
-
-
+{{vm.ui.modal.show}}
+<confirm-modal data-show="vm.ui.modal.show" data-title="{{vm.ui.modal.title}}" data-action="vm.confirmDelete()"></confirm-modal>
 
 <div main-footer></div>

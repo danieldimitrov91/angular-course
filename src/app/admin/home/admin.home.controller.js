@@ -17,6 +17,13 @@ function AdminHomeController(BoardsService, ProfileService) {
     };
 
     var userId;
+    vm.ui = {
+        boardsLoading: true,
+        modal: {
+            show : false,
+            title: ''
+        }
+    };
 
     activate();
 
@@ -27,16 +34,23 @@ function AdminHomeController(BoardsService, ProfileService) {
         BoardsService.getBoards({userId: userId}, successGetBoards, failGetBoards);
     }
 
-    vm.deleteBoard = function (board) {
-        if (!board.deleting) {
-            board.deleting = true;
-            BoardsService.deleteBoard({
-                userId: userId,
-                boardId: board.id},
-                successDeleteBoard.bind(board),
-                failDeleteBoard.bind(board)
-            );
-        }
+    vm.confirmDelete = function (board) {
+        console.log(board);
+        vm.ui.modal.show = true;
+        vm.ui.modal.title = board.name;
+        vm.deleteBoard = vm.deleteBoard.bind(board);
+    };
+    vm.deleteBoard = function () {
+        // if (!board.deleting) {
+        console.log(this);
+            this.deleting = true;
+            // BoardsService.deleteBoard({
+            //     userId: userId,
+            //     boardId: this.id},
+            //     successDeleteBoard.bind(this),
+            //     failDeleteBoard.bind(this)
+            // );
+        // }
     };
 
     vm.createBoard = function () {

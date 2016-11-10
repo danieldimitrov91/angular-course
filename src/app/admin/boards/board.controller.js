@@ -39,6 +39,10 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
         }
     }
 
+    function getCurrentBoard() {
+        BoardsService.getBoard({userId: userId, boardId: boardId}, successGetBoard, failGetBoard);
+    }
+
     vm.createCard = function () {
         var modal = document.querySelector('.modal.open'),
             backShadow = document.querySelector('.lean-overlay'),
@@ -55,25 +59,45 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
             name: vm.cardData.name,
             userId: userId,
             boardId: boardId
-        }, successCreateBoard, failCreateBoard);
+        }, successCreateCard, failCreateCard);
     };
 
-    function successCreateBoard(response) {
+    vm.deleteCard = function (card) {
+        console.log('card deleted');
+        console.log(card);
+        CardsService.deleteCard({
+            userId: userId,
+            boardId: boardId,
+            cardId: card.id},
+            successDeleteCard, failDeleteCard
+        );
+    };
+
+    function successCreateCard(response) {
         vm.board = response.result;
-        console.log(response);
+        getCurrentBoard();
+        // BoardsService.getBoard({userId: userId, boardId: boardId}, successGetBoard, failGetBoard);
     }
 
-    function failCreateBoard(response) {
+    function failCreateCard(response) {
         console.log('No Cards');
     }
 
     function successGetBoard(response) {
         vm.board = response.result;
-        console.log(vm.board);
-        console.log(boardId);
     }
 
     function failGetBoard(response) {
+        console.log('No Cards');
+    }
+
+    function successDeleteCard(response) {
+        // vm.board = response.result;
+        console.log(response);
+        getCurrentBoard();
+    }
+
+    function failDeleteCard(response) {
         console.log('No Cards');
     }
 }
