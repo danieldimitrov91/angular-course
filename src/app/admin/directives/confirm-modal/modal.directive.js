@@ -1,6 +1,6 @@
 import 'angular';
-import template from 'modal.tpl.html';
-import modalController from 'modal.controller';
+import template from './modal.tpl.html';
+import modalController from './modal.controller';
 
 modalDirective.$inject = [];
 
@@ -10,12 +10,13 @@ function modalDirective() {
         scope: {
             show: '=',
             title: '@',
-            action: '&'
+            action: '&',
+            item: '='
         },
         restrict: 'E',
         controller: modalController,
-        template: template,
-        replace: true
+        template: template
+        // replace: true
     };
 
     return directive;

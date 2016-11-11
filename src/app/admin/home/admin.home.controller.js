@@ -21,7 +21,8 @@ function AdminHomeController(BoardsService, ProfileService) {
         boardsLoading: true,
         modal: {
             show : false,
-            title: ''
+            title: '',
+            item: ''
         }
     };
 
@@ -38,19 +39,20 @@ function AdminHomeController(BoardsService, ProfileService) {
         console.log(board);
         vm.ui.modal.show = true;
         vm.ui.modal.title = board.name;
-        vm.deleteBoard = vm.deleteBoard.bind(board);
+        vm.ui.modal.item = board;
+        // vm.deleteBoard = vm.deleteBoard.bind(board);
     };
-    vm.deleteBoard = function () {
-        // if (!board.deleting) {
-        console.log(this);
-            this.deleting = true;
-            // BoardsService.deleteBoard({
-            //     userId: userId,
-            //     boardId: this.id},
-            //     successDeleteBoard.bind(this),
-            //     failDeleteBoard.bind(this)
-            // );
-        // }
+    vm.deleteBoard = function (item) {
+        console.log(item);
+        if (!item.deleting) {
+            item.deleting = true;
+            BoardsService.deleteBoard({
+                userId: userId,
+                boardId: item.id},
+                successDeleteBoard.bind(item),
+                failDeleteBoard.bind(item)
+            );
+        }
     };
 
     vm.createBoard = function () {
@@ -73,9 +75,11 @@ function AdminHomeController(BoardsService, ProfileService) {
 
     function successGetBoards(response) {
         vm.boards = response.result;
+        vm.ui.boardsLoading = false;
     }
     function failGetBoards(response) {
         console.log('faild to get boards');
+        vm.ui.boardsLoading = false;
     }
 
     function successDeleteBoard(response) {

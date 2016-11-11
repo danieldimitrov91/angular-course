@@ -16,6 +16,14 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
     vm.cardData = {
         name: ''
     };
+    vm.ui = {
+        cardsLoading: false,
+        modal: {
+            show : false,
+            title: '',
+            item: ''
+        }
+    };
 
     activate();
 
@@ -53,8 +61,6 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
         modal.classList.remove('open');
         modal.removeAttribute('style');
 
-
-        console.log('card created', vm.cardData.name);
         CardsService.createCard({
             name: vm.cardData.name,
             userId: userId,
@@ -62,24 +68,37 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
         }, successCreateCard, failCreateCard);
     };
 
+
+    vm.activateModalandData = function (card) {
+
+        vm.ui.modal.show = true;
+        vm.ui.modal.title = card.name;
+        vm.ui.modal.item = card;
+
+    };
+
     vm.deleteCard = function (card) {
-        console.log('card deleted');
-        console.log(card);
-        CardsService.deleteCard({
-            userId: userId,
-            boardId: boardId,
-            cardId: card.id},
-            successDeleteCard, failDeleteCard
-        );
+
+        if(!card.deleting) {
+            card.deleting = true;
+            CardsService.deleteCard({
+                userId: userId,
+                boardId: boardId,
+                cardId: card.id},
+                successDeleteCard, failDeleteCard
+            );
+        }
     };
 
     function successCreateCard(response) {
         vm.board = response.result;
         getCurrentBoard();
+        vm.ui.cardsLoading = false;
         // BoardsService.getBoard({userId: userId, boardId: boardId}, successGetBoard, failGetBoard);
     }
 
     function failCreateCard(response) {
+        vm.ui.cardsLoading = false;
         console.log('No Cards');
     }
 
@@ -93,7 +112,6 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
 
     function successDeleteCard(response) {
         // vm.board = response.result;
-        console.log(response);
         getCurrentBoard();
     }
 
