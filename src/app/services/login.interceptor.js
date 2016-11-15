@@ -1,12 +1,14 @@
-loginInterceptor.$inject = [];
+loginInterceptor.$inject = ['sessionService'];
 
-function loginInterceptor() {
+function loginInterceptor(sessionService) {
     return {
         request: function (config) {
             console.log(config);
             return config;
         },
         response: function (response) {
+
+            sessionService.setSession(true);
             console.log(response);
             var transformResponse = {
                 data: {
@@ -18,6 +20,7 @@ function loginInterceptor() {
             return transformResponse;
         },
         responseError: function (response) {
+            sessionService.setSession(true);
             console.log(response);
             return response;
         }

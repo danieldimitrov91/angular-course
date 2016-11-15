@@ -6,6 +6,11 @@ import 'angular-materialize';
 import 'ui-router';
 import 'ng-resource';
 import 'ng-storage';
+import 'angular-cookies';
+import 'ng-translate';
+import 'ng-translate-loader';
+import 'ng-translate-local';
+import 'ng-translate-cookie';
 
 /***
  * App config
@@ -34,6 +39,9 @@ let appDependencies = [
     'ngResource',
     'ngStorage',
     'ui.materialize',
+    'ngStorage',
+    'ngCookies',
+    'pascalprecht.translate',
 
     servicesModule,
     appProviders,
@@ -77,12 +85,3 @@ function appRun($rootScope, $state, ProfileService) {
         }
     }
 }
-
-
-
-
-
-
-
-
-

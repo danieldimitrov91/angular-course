@@ -1,6 +1,8 @@
-LoginController.$inject = ['$scope', '$state', 'UserService', 'filterByUPFilter', 'ProfileService'];
+// import {translations} from './login.translations';
 
-function LoginController($scope, $state, UserService, filterByUP, ProfileService) {
+LoginController.$inject = ['$scope', '$state', 'UserService', 'filterByUPFilter', 'ProfileService', 'Translations'];
+
+function LoginController($scope, $state, UserService, filterByUP, ProfileService, Translations) {
 
     var vm = this;
 
@@ -12,6 +14,7 @@ function LoginController($scope, $state, UserService, filterByUP, ProfileService
         username: '',
         password: ''
     };
+    vm.translations = {};
     activate();
 
     ///////////////
@@ -24,6 +27,11 @@ function LoginController($scope, $state, UserService, filterByUP, ProfileService
             }, function error(response) {
                 console.log(response);
         });
+
+        // console.log(Translations);
+        // Translations.executeTranslations(translations).then(function (translations) {
+        //     vm.translations = translations;
+        // });
     }
 
     vm.initiateLogin = function () {
@@ -35,7 +43,7 @@ function LoginController($scope, $state, UserService, filterByUP, ProfileService
                 ProfileService.setProfile(userData);
                 $state.go('app.admin.home');
             } else {
-                console.log('Invali login form error');
+                console.log('Invalid login form error');
             }
         } else {
             console.log('NO');

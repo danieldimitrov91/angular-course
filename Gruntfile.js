@@ -11,11 +11,22 @@ module.exports = function(grunt) {
             css: {
                 files: ['src/css/style.css'],
                 tasks:['copy:css']
+            },
+            translations: {
+                files: ['src/app/translations/*.json'],
+                tasks: ['copy:translations']
             }
         },
 
         copy: {
-
+            translations: {
+                files: [{
+                    expand: true,
+                    cwd: './src/app/translations',
+                    src: ['**'],
+                    dest: 'dev/translations'
+                }]
+            },
             dev: {
                 files: [
                     {
@@ -98,7 +109,12 @@ module.exports = function(grunt) {
                 options: {
                     alias: [
                         './bower_components/angular/angular.min.js:angular',
+                        './bower_components/angular-cookies/angular-cookies.min.js:angular-cookies',
                         './bower_components/angular-ui-router/release/angular-ui-router.min.js:ui-router',
+                        './bower_components/angular-translate/angular-translate.js:ng-translate',
+                        './bower_components/angular-translate-storage-local/angular-translate-storage-local.js:ng-translate-local',
+                        './bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js:ng-translate-cookie',
+                        './bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js:ng-translate-loader',
                         './bower_components/angular-resource/angular-resource.js:ng-resource',
                         './bower_components/jquery/dist/jquery.js:jquery',
                         './bower_components/angular-materialize/src/angular-materialize.js:angular-materialize',
@@ -123,7 +139,12 @@ module.exports = function(grunt) {
                     watch: true,
                     external: [
                         'angular',
+                        'angular-cookies',
                         'ui-router',
+                        'ng-translate',
+                        'ng-translate-local',
+                        'ng-translate-cookie',
+                        'ng-translate-loader',
                         'ng-resource',
                         'jquery',
                         'angular-materialize',
@@ -148,6 +169,7 @@ module.exports = function(grunt) {
         'browserify:vendor',
         'browserify:watchClient',
         'copy:dev',
+        'copy:translations',
         'watch'
     ]);
 

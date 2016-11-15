@@ -1,0 +1,51 @@
+{
+  "common": {
+    "ok": "ok",
+    "cancel": "cancel",
+    "save": "save",
+    "close": "close"
+  },
+  "errors": {
+
+    "loginErrors": {
+      "invalidUsername" : "Username is not valid!",
+      "invalidPassword" : "Wrong password"
+    }
+  },
+  "client": {
+
+    "home": {
+
+    },
+    "loginPage": {
+      "login": "Login",
+      "username": "username",
+      "password": "password",
+      "welcome": "Welcome back!"
+    },
+    "register": {
+
+    }
+  },
+  "admin": {
+
+    "logout": {
+
+    },
+    "home": {
+
+    },
+    "boardView": {
+
+    },
+    "cardView": {
+
+    }
+  },
+
+  "modals":{
+    "deleteModal":{
+
+    }
+  }
+}
