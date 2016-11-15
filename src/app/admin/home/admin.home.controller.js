@@ -23,6 +23,11 @@ function AdminHomeController(BoardsService, ProfileService) {
             show : false,
             title: '',
             item: ''
+        },
+        editModal: {
+            show : false,
+            title: '',
+            item: ''
         }
     };
 
@@ -32,16 +37,27 @@ function AdminHomeController(BoardsService, ProfileService) {
 
     function activate() {
         userId = ProfileService.getProfile().id;
+        getAllBoards();
+    }
+
+    function getAllBoards() {
         BoardsService.getBoards({userId: userId}, successGetBoards, failGetBoards);
     }
 
-    vm.confirmDelete = function (board) {
+    vm.showBoardDetails = function (board, type) {
         console.log(board);
-        vm.ui.modal.show = true;
-        vm.ui.modal.title = board.name;
-        vm.ui.modal.item = board;
-        // vm.deleteBoard = vm.deleteBoard.bind(board);
+
+        if (type === 'delete') {
+            vm.ui.modal.show = true;
+            vm.ui.modal.title = board.name;
+            vm.ui.modal.item = board;
+        } else if (type === 'edit') {
+            vm.ui.editModal.show = true;
+            vm.ui.editModal.title = board.name;
+            vm.ui.editModal.item = board;
+        }
     };
+
     vm.deleteBoard = function (item) {
         console.log(item);
         if (!item.deleting) {
@@ -55,6 +71,20 @@ function AdminHomeController(BoardsService, ProfileService) {
         }
     };
 
+    vm.updateBoard = function (item) {
+        console.log(item);
+        if (!item.updating) {
+            item.updating = true;
+            BoardsService.updateBoard({
+                userId: userId,
+                boardId: item.id,
+                name: item.newName},
+                successUpdateBoard.bind(item),
+                failUpdateBoard.bind(item)
+            );
+        }
+    };
+
     vm.createBoard = function () {
         var modal = document.querySelector('.modal.open'),
             backShadow = document.querySelector('.lean-overlay'),
@@ -64,8 +94,6 @@ function AdminHomeController(BoardsService, ProfileService) {
         emptyInput.value = '';
         modal.classList.remove('open');
         modal.removeAttribute('style');
-
-
 
         BoardsService.createBoard({
             name: vm.boardData.name,
@@ -89,10 +117,16 @@ function AdminHomeController(BoardsService, ProfileService) {
 
     }
     function successCreateBoard(response) {
-        BoardsService.getBoards({userId: userId}, successGetBoards, failGetBoards);
+        getAllBoards();
 
     }
     function failCreateBoard(response) {
+
+    }
+    function successUpdateBoard(response) {
+        getAllBoards();
+    }
+    function failUpdateBoard(response) {
 
     }
 }

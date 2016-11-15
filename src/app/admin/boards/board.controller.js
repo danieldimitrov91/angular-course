@@ -22,6 +22,16 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
             show : false,
             title: '',
             item: ''
+        },
+        dataModal: {
+            show: false,
+            title: '',
+            item: ''
+        },
+        editModal: {
+            show: false,
+            title: '',
+            item: ''
         }
     };
 
@@ -68,12 +78,24 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
         }, successCreateCard, failCreateCard);
     };
 
+    vm.showCardDetails = function (card, type) {
 
-    vm.activateModalandData = function (card) {
+        console.log('type = ' + type);
 
-        vm.ui.modal.show = true;
-        vm.ui.modal.title = card.name;
-        vm.ui.modal.item = card;
+        if (type === 'delete') {
+            vm.ui.modal.show = true;
+            vm.ui.modal.title = card.name;
+            vm.ui.modal.item = card;
+        } else if (type === 'data') {
+            vm.ui.dataModal.show = true;
+            vm.ui.dataModal.title = card.name;
+            vm.ui.dataModal.item = card;
+        } else if (type === 'edit') {
+            vm.ui.editModal.show = true;
+            vm.ui.editModal.title = card.name;
+            vm.ui.editModal.item = card;
+            console.log(vm.ui.editModal);
+        }
 
     };
 
@@ -90,11 +112,32 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
         }
     };
 
+    vm.showCardDetailData = function (card) {
+        console.log('show card details');
+        console.log(card);
+    };
+
+    vm.editCardData = function (card) {
+        console.log('edit card details');
+        console.log(card);
+
+        if(!card.editing) {
+            card.editing = true;
+            CardsService.updateCard({
+                userId: userId,
+                boardId: boardId,
+                cardId: card.id,
+                name: card.newName},
+                successEditCard, failEditCard
+            );
+        }
+    };
+
+
     function successCreateCard(response) {
         vm.board = response.result;
         getCurrentBoard();
         vm.ui.cardsLoading = false;
-        // BoardsService.getBoard({userId: userId, boardId: boardId}, successGetBoard, failGetBoard);
     }
 
     function failCreateCard(response) {
@@ -117,5 +160,15 @@ function AdminHomeController($state, BoardsService, ProfileService, CardsService
 
     function failDeleteCard(response) {
         console.log('No Cards');
+    }
+
+    function successEditCard(response) {
+        // vm.board = response.result;
+        getCurrentBoard();
+        console.log('card edited', response);
+    }
+
+    function failEditCard(response) {
+        console.log('no edit card');
     }
 }

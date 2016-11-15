@@ -1,0 +1,17 @@
+<div id="modal" class="modal teal lighten-5" ng-class="{open: show}">
+    <div class="modal-content teal lighten-1">
+        <h4 class="white-text">Edit - {{title}}</h4>
+
+    </div>
+    <div class="modal-content white lighten-3"">
+        <h4>Edit {{type}}</h4>
+        <div input-field>
+            <input type="text" class="modal-input edit-item" placeholder="{{title}}" ng-value="{{title}}" ng-model="vm.cardData.name" length="150">
+            <label>Enter New {{type}} Name</label>
+        </div>
+    </div>
+    <div class="modal-content">
+        <a class="waves-effect waves-light btn" ng-click="completeAction()">Confirm</a>
+        <a class="waves-effect waves-light btn" ng-click="show = false">Cancel</a>
+    </div>
+</div>

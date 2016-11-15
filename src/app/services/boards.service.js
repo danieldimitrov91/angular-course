@@ -47,6 +47,13 @@ function BoardsService($resource, API_URL) {
             },
             isArray: false
         },
+        updateBoard: {
+            method: 'PUT',
+            params: {
+                action: 'boards'
+            },
+            isArray: false
+        }
 
     });
 }

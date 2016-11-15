@@ -6,11 +6,11 @@
 
     <div class="row">
         <div class="col">
-            <a class='btn' href='#demoModal' modal>Create Card</a>
+            <a class='btn' href='#createCardModal' modal>Create Card</a>
         </div>
     </div>
     <!-- Modal Structure -->
-    <div id="demoModal" class="modal">
+    <div id="createCardModal" class="modal">
         <div class="modal-content">
             <h4>Create Card</h4>
             <div input-field>
@@ -35,8 +35,9 @@
                     <span class="card-title">{{card.name}}</span>
                 </div>
                 <div class="card-action">
-                    <a href="javascript:;" ng-click="vm.showCardDetails(card)">View Card</a>
-                    <a href="javascript:;" ng-click="vm.activateModalandData(card)">Delete Card</a>
+                    <a href="javascript:;" ng-click="vm.showCardDetails(card, 'data')">View Card</a>
+                    <a href="javascript:;" ng-click="vm.showCardDetails(card, 'edit')">Edit Card</a>
+                    <a href="javascript:;" ng-click="vm.showCardDetails(card, 'delete')">Delete Card</a>
                 </div>
             </div>
         </div>
@@ -45,11 +46,19 @@
 </section>
 
 <card-modal-directive
-        data-show="vm.ui.modal.show"
-        data-title="{{vm.ui.modal.title}}"
-        data-action="vm.deleteCard(item)"
-        data-item="vm.ui.modal.item">
+        data-show="vm.ui.dataModal.show"
+        data-title="{{vm.ui.dataModal.title}}"
+        data-action="vm.showCardDetailData(item)"
+        data-item="vm.ui.dataModal.item">
 </card-modal-directive>
+
+<edit-card-directive
+        data-show="vm.ui.editModal.show"
+        data-title="{{vm.ui.editModal.title}}"
+        data-action="vm.editCardData(item)"
+        data-item="vm.ui.editModal.item"
+        data-type="Card">
+</edit-card-directive>
 
 <modal-directive
         data-show="vm.ui.modal.show"

@@ -13,23 +13,23 @@ function headerAdmin ($state, ProfileService) {
         template: template,
         replace: true,
         link: function (scope, elem, attr) {
-            var logoutBtn = document.querySelector('.logout');
-
-            logoutBtn.addEventListener('click', logoutFunc);
-
-            elem.on('$destroy', function () {
-                console.log('header admin destroy method on');
-                logoutBtn.removeEventListener('click', logoutFunc);
-            });
+            // var logoutBtn = document.querySelector('.logout');
+            //
+            // logoutBtn.addEventListener('click', logoutFunc);
+            //
+            // elem.on('$destroy', function () {
+            //     console.log('header admin destroy method on');
+            //     logoutBtn.removeEventListener('click', logoutFunc);
+            // });
         }
     };
 
-    function logoutFunc(e) {
-        // e.preventDefault();
-        console.log('logout');
-        ProfileService.logoutUser();
-
-        $state.go('app.admin.logout-success');
-    }
+    // function logoutFunc(e) {
+    //     // e.preventDefault();
+    //     console.log('logout');
+    //     ProfileService.logoutUser();
+    //
+    //     $state.go('app.admin.logout-success');
+    // }
     return directive;
 };

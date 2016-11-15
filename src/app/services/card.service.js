@@ -41,6 +41,13 @@ function CardsService($resource, API_URL) {
             },
             isArray: false
         },
+        updateCard: {
+            method: 'PUT',
+            params: {
+                action: 'cards'
+            },
+            isArray: false
+        }
 
     });
 }

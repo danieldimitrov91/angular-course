@@ -2,6 +2,7 @@
  * Libraries
  */
 import 'angular';
+import LogoutSuccessController from './logout-success.controller';
 
 /***
  * Configure Home module
@@ -18,11 +19,14 @@ function config ($stateProvider) {
         url: "/logout-success",
         views: {
             admin: {
-        		template: template
+                controller: LogoutSuccessController,
+                controllerAs: 'vm',
+        		template: template,
         	}
         },
         params: {
-            requireLogin: false
+            requireLogin: true
         }
     });
+
 }

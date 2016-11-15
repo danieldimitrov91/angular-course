@@ -1,10 +1,12 @@
 <div id="modal" class="modal teal lighten-5" ng-class="{open: show}">
     <div class="modal-content orange lighten-1">
-        <h4 class="white-text">Are you sure you want to delete {{title}}</h4>
+        <h4 class="white-text">Card Name - {{title}}</h4>
+        <p class="white-text">Card Details - {{item.text_content}}</p>
+        <p class="white-text">Created At - {{item.createdAt | date: 'yyyy-MM-dd HH:mm:ss'}}</p>
 
     </div>
     <div class="modal-content">
-        <a class="waves-effect waves-light btn" ng-click="completeAction()">Confirm</a>
+        <!--<a class="waves-effect waves-light btn" ng-click="completeAction()">Confirm</a>-->
         <a class="waves-effect waves-light btn" ng-click="show = false">Cancel</a>
     </div>
 </div>
