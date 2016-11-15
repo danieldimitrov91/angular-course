@@ -4,7 +4,7 @@ function EditCardController($scope) {
     var vm = this;
 
     vm.cardData = {
-        name: ''
+        name: $scope.item.name
     };
     console.log(vm.cardData.name);
     console.log('EditCardController');
@@ -15,6 +15,7 @@ function EditCardController($scope) {
             input = document.querySelector('.modal-input.edit-item');
 
         input.value = '';
+        // item.newName = $scope.item.name;
         item.newName = vm.cardData.name;
 
         $scope.show = false;
@@ -23,6 +24,10 @@ function EditCardController($scope) {
             item: item
         });
     };
+
+    $scope.hideModal = function () {
+        $scope.show = false;
+    }
 }
 
 export default EditCardController;

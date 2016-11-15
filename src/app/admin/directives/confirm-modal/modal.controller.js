@@ -10,5 +10,9 @@ function modalController($scope) {
         $scope.action({
             item: $scope.item
         });
-    }
+    };
+
+    $scope.hideModal = function () {
+        $scope.show = false;
+    };
 }

@@ -24,12 +24,11 @@ function Translations($translate, $q) {
 
                 pageTranslations.common = translations[0];
                 pageTranslations.error= translations[1];
-
+                console.log(pageTranslations);
                 return pageTranslations;
             });
         }
     }
-
 
 
 }
