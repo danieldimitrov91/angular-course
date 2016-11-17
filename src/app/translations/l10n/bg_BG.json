@@ -1,0 +1,52 @@
+
+{
+  "common": {
+    "ok": "Добре",
+    "cancel": "Откажи",
+    "save": "Запази",
+    "close": "Затвори"
+  },
+  "errors": {
+
+    "loginErrors": {
+      "invalidUsername" : "Потребителското име е невалидно",
+      "invalidPassword" : "Грешна парола"
+    }
+  },
+  "client": {
+
+    "home": {
+
+    },
+    "loginPage": {
+      "login": "Вход",
+      "username": "Потребителско име",
+      "password": "Парола",
+      "welcome": "Добре дошъл отново!"
+    },
+    "register": {
+
+    }
+  },
+  "admin": {
+
+    "logout": {
+
+    },
+    "home": {
+
+    },
+    "boardView": {
+
+    },
+    "cardView": {
+
+    }
+  },
+
+  "modals":{
+    "deleteModal":{
+
+    }
+  }
+}

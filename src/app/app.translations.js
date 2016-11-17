@@ -5,7 +5,7 @@
  * @type {string[]} commonTranslations
  * @type {string[]} errorsTranslations
  */
-export const commonTranslations  = ['login', 'legalNotice', 'username', 'password',
+export const commonTranslations  = ['Login', 'legalNotice', 'Username', 'Password',
     'save', 'cancel', 'ok', 'close', 'email', 'firstName', 'disable', 'change', 'deleted'];
 
 export const errorsTranslations = ['invalidUsername', 'provideAPassword', 'invalidEmail', 'fieldRequired',

@@ -1,4 +1,4 @@
-import {translations} from './login.translations';
+import {namespace,translations} from './login.translations';
 
 LoginController.$inject = ['$scope', '$state', 'UserService', 'filterByUPFilter', 'ProfileService', 'Translations'];
 
@@ -28,9 +28,8 @@ function LoginController($scope, $state, UserService, filterByUP, ProfileService
                 console.log(response);
         });
 
-        console.log(translations);
-        console.log(Translations);
-        Translations.executeTranslations(translations).then(function (translations) {
+        console.log(namespace, translations);
+        Translations.executeTranslations(namespace,translations).then(function (translations) {
             vm.translations = translations;
             console.log(vm.translations);
         });

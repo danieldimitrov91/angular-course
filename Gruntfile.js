@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 tasks:['copy:css']
             },
             translations: {
-                files: ['src/app/translations/*.json'],
+                files: ['src/app/translations/**/*.json'],
                 tasks: ['copy:translations']
             }
         },

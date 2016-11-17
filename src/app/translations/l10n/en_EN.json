@@ -20,13 +20,14 @@
     "loginPage": {
       "login": "Login",
       "username": "username",
-      "password": "password",
+      "password": "Password",
       "welcome": "Welcome back!"
     },
     "register": {
 
     }
   },
+
   "admin": {
 
     "logout": {

@@ -1,1 +1,3 @@
-export const translations = ['client.loginPage.username', 'client.loginPage.password'];
+export const translations = ['login', 'username', 'password'];
+
+export const namespace = 'client.loginPage';
