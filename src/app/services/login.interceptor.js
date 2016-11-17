@@ -9,6 +9,11 @@ function loginInterceptor(sessionService) {
         response: function (response) {
 
             sessionService.setSession(true);
+
+            if(response.config.url.includes('translations')) {
+                return response;
+            }
+
             console.log(response);
             var transformResponse = {
                 data: {

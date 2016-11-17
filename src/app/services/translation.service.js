@@ -17,7 +17,6 @@ function Translations($translate, $q) {
          * @returns {Deferred|*}
          */
         executeTranslations: function (namespace,keysArray) {
-
             namespace = namespace + ".";
 
             /**
@@ -51,5 +50,5 @@ function Translations($translate, $q) {
             });
 
         }
-    }
+    };
 }

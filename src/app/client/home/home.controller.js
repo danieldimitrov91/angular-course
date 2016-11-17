@@ -11,6 +11,10 @@ function HomeConfigController($scope) {
     $scope.$parent.title = vm.title;
 
     console.log('HomeConfigController inside');
+    console.log($scope.$parent);
+    function changeCurrentLanguage() {
+
+    }
 
 }
 

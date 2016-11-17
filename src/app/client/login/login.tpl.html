@@ -1,7 +1,10 @@
 <section class="main-content-register">
     <div class="container">
         <h1 translate>{{'client.loginPage.login' | translate}} Page</h1>
-
+        <div class="change-lg">
+            <span class="lg" ng-click="vm.test('bg_BG')">BG</span>
+            <span class="lg" ng-click="vm.test('en_EN')">EN</span>
+        </div>
         <div class="row">
             <form class="col s12" ng-submit="vm.initiateLogin()" name="vm.loginForm">
                 <div class="row">

@@ -1,8 +1,8 @@
 import {namespace,translations} from './login.translations';
 
-LoginController.$inject = ['$scope', '$state', 'UserService', 'filterByUPFilter', 'ProfileService', 'Translations'];
+LoginController.$inject = ['$scope', '$state', 'UserService', 'filterByUPFilter', 'ProfileService', 'Translations', '$translate'];
 
-function LoginController($scope, $state, UserService, filterByUP, ProfileService, Translations) {
+function LoginController($scope, $state, UserService, filterByUP, ProfileService, Translations, $translate) {
 
     var vm = this;
 
@@ -31,8 +31,19 @@ function LoginController($scope, $state, UserService, filterByUP, ProfileService
         console.log(namespace, translations);
         Translations.executeTranslations(namespace,translations).then(function (translations) {
             vm.translations = translations;
+            // vm.translations.test = Translations.test;
             console.log(vm.translations);
         });
+
+        vm.test = function(language) {
+            $translate.use(language);
+            Translations.executeTranslations(namespace,translations).then(function (translations) {
+                vm.translations = translations;
+                // vm.translations.test = Translations.test;
+                console.log(vm.translations);
+            });
+            console.log('test translations');
+        }
     }
 
     vm.initiateLogin = function () {

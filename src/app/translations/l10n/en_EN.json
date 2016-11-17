@@ -19,7 +19,7 @@
     },
     "loginPage": {
       "login": "Login",
-      "username": "username",
+      "username": "Username",
       "password": "Password",
       "welcome": "Welcome back!"
     },
