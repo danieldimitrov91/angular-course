@@ -32,7 +32,7 @@ function headerClient () {
     };
 
     function checkFunction() {
-        document.querySelector('h1').innerHTML += 'Welcome mother fucker';
+        document.querySelector('h1').innerHTML += 'Welcome';
     }
 
     return directive;

@@ -1,23 +1,35 @@
 import 'angular';
+import {namespace,translations} from './header.translations';
 
-//
-//
-// export default angular.module('app.client.controller',[])
-//     .controller('HeaderTitleController', HeaderTitleController).name;
+HeaderController.$inject = ['$scope', '$rootScope', 'Translations'];
 
-HeaderController.$inject = ['$scope'];
-
-function HeaderController($scope) {
+function HeaderController($scope, $rootScope, Translations) {
 
     var vm = this;
 
     vm.headerTitle = 'header Title';
     console.log('header controller inside');
     vm.color = 'background-color:red;';
+    vm.translations = {};
 
-    // document.addEventListener('$destroy', function () {
-    //     console.log('header client destroy method on');
-    // });
+    getTranslations();
+
+    $scope.$on('change:lang', getTranslations);
+
+    vm.changeLanguage = function (lang) {
+        Translations.changeLang(lang);
+        $rootScope.$broadcast('change:lang');
+    };
+
+    function getTranslations() {
+        console.log(namespace, translations);
+        Translations.executeTranslations(namespace,translations).then(function (translations) {
+            vm.translations = translations;
+        });
+    }
+
 }
+
+
 
 export default HeaderController;

@@ -9,7 +9,7 @@ function editCardDirective() {
             show: '=',
             title: '@',
             action: '&',
-            item: '@',
+            item: '=',
             type: '@'
         },
         restrict: 'E',

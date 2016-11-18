@@ -1,10 +1,10 @@
 <section class="main-content-register">
     <div class="container">
-        <h1 translate>{{'client.loginPage.login' | translate}} Page</h1>
-        <div class="change-lg">
-            <span class="lg" ng-click="vm.test('bg_BG')">BG</span>
-            <span class="lg" ng-click="vm.test('en_EN')">EN</span>
-        </div>
+        <h1 translate>{{vm.translations.login}}</h1>
+        <!--<div class="change-lg">-->
+            <!--<span class="lg" ng-click="vm.test('bg_BG')">BG</span>-->
+            <!--<span class="lg" ng-click="vm.test('en_EN')">EN</span>-->
+        <!--</div>-->
         <div class="row">
             <form class="col s12" ng-submit="vm.initiateLogin()" name="vm.loginForm">
                 <div class="row">
@@ -17,12 +17,15 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="password" type="password" required="true" ng-model="vm.userData.password" name="password" class="validate">
-                        <label for="password">{{vm.translations.common.Password}}</label>
+                        <label for="password">{{vm.translations.password}}</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 right-align">
-                        <button ng-disabled="vm.loginForm.$invalid" class="btn waves-effect waves-light blue darken-2" type="submit" name="action">Submit
+                        <button ng-disabled="vm.loginForm.$invalid"
+                                class="btn waves-effect waves-light blue darken-2"
+                                type="submit" name="action">
+                            {{vm.translations.submit}}
                             <i class="material-icons right">send</i>
                         </button>
                     </div>

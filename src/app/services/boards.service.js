@@ -33,13 +33,6 @@ function BoardsService($resource, API_URL) {
             },
             isArray: false
         },
-        deleteBoard: {
-            method: 'DELETE',
-            params: {
-                action: 'boards'
-            },
-            isArray: false
-        },
         createBoard: {
             method: 'POST',
             params: {

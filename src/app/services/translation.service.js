@@ -8,47 +8,55 @@ Translations.$inject = ['$translate', '$q'];
 /* @ngInject */
 function Translations($translate, $q) {
 
-    return {
+    /***
+     * Add descriptions
+     * @param namespace
+     * @param keysArray
+     * @returns {Deferred|*}
+     */
+    function executeTranslations(namespace, keysArray) {
+        namespace = namespace + ".";
 
-        /***
-         * Add descriptions
-         * @param namespace
-         * @param keysArray
-         * @returns {Deferred|*}
+        /**
+         * Adds namespace to the array of keys,to retrieve the translations
          */
-        executeTranslations: function (namespace,keysArray) {
-            namespace = namespace + ".";
+        keysArray = _.map(keysArray,function(key) {
+            return namespace + key;
+        });
+
+        return $q.all([
+            $translate(commonTranslations),
+            $translate(errorsTranslations),
+            $translate(keysArray)
+        ]).then(function combineTranslations(translations){
 
             /**
-             * Adds namespace to the array of keys,to retrieve the translations
+             * Iterates throw the returned translations and removes the namespace string
              */
-            keysArray = _.map(keysArray,function(key) {
-                return namespace + key;
-            });
+            var pageTranslations = _.reduce(translations[2], function(obj, val, key) {
 
-            return $q.all([
-                $translate(commonTranslations),
-                $translate(errorsTranslations),
-                $translate(keysArray)
-            ]).then(function combineTranslations(translations){
+                key = key.replace(namespace, "");
+                obj[key] = val;
+                return obj;
+            }, {});
 
-                /**
-                 * Iterates throw the returned translations and removes the namespace string
-                 */
-                var pageTranslations = _.reduce(translations[2], function(obj, val, key) {
+            //Assign common and error translations
+            pageTranslations.common = translations[0];
+            pageTranslations.errors = translations[1];
 
-                    key = key.replace(namespace, "");
-                    obj[key] = val;
-                    return obj;
-                }, {});
+            return pageTranslations;
+        });
 
-                //Assign common and error translations
-                pageTranslations.common = translations[0];
-                pageTranslations.errors = translations[1];
+    }
 
-                return pageTranslations;
-            });
+    function changeLang(lang) {
+        console.log(lang);
+        console.log('lang changed');
+        $translate.use(lang);
+    }
 
-        }
+    return {
+        executeTranslations: executeTranslations,
+        changeLang: changeLang
     };
 }

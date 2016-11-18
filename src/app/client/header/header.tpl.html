@@ -7,9 +7,11 @@
                 <ul class="right hide-on-med-and-down">
                     <li><span class="header-text">{{ title }}</span></li>
                     <li><span class="header-text">{{ vm.headerTitle }}</span></li>
-                    <li><a ui-sref="app.client.home">Home</a></li>
-                    <li><a ui-sref="app.client.login">Login</a></li>
-                    <li><a ui-sref="app.client.register">Register</a></li>
+                    <li><a ui-sref="app.client.home">{{vm.translations.home}}</a></li>
+                    <li><a ui-sref="app.client.login">{{vm.translations.login}}</a></li>
+                    <li><a ui-sref="app.client.register">{{vm.translations.register}}</a></li>
+                    <li><a hred="javascript:;" ng-click="vm.changeLanguage('bg_BG')">BG</a></li>
+                    <li><a hred="javascript:;" ng-click="vm.changeLanguage('en_EN')">EN</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a ui-sref="app.client.home">Home</a></li>

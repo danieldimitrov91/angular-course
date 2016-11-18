@@ -17,8 +17,14 @@
     "home": {
 
     },
+    "header": {
+      "home": "Home",
+      "login": "Login",
+      "register": "Register"
+    },
     "loginPage": {
       "login": "Login",
+      "submit": "Submit",
       "username": "Username",
       "password": "Password",
       "welcome": "Welcome back!"
@@ -27,7 +33,6 @@
 
     }
   },
-
   "admin": {
 
     "logout": {
@@ -50,3 +55,4 @@
     }
   }
 }
+
